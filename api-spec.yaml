@@ -1,0 +1,49 @@
+swagger: "2.0"
+info:
+  description: "Retorna a hora do servidor timezone 0."
+  version: "1.0.0"
+  title: "bbce-timeServidor"
+basePath: "/bbce"
+tags:
+- name: "bbce-aws"
+  description: "bbce-timeServidor"
+schemes:
+- "http"
+- "https"
+paths:
+  /v1/clock-aws:
+    get:
+      tags:
+        - "clock"
+      summary: "Retorno da hora time zone 0 servidor AWS"
+      description: "Returns a clock AWS timezone 0"
+      operationId: "getClock"
+      produces:
+        - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Esta requisição foi bem sucedida."
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Clock-aws"
+        400:
+          description: "Essa resposta significa que o servidor não entendeu a requisição pois está com uma sintaxe inválida"
+        401:
+          description: "O cliente deve se autenticar para obter a resposta solicitada."
+        404:
+          description: "Clock-aws não encontrado."
+        500:
+          description: "Internal Server Error."
+        501:
+          description: "Not Implemented."
+definitions:
+  Clock-aws:
+    type: "object"
+    properties:
+      Horário do servidor atual:
+        type: "string"
+        example: "Sat Apr 04 2020 15:36:16 GMT+0000"
+        items:
+          type: "string"
