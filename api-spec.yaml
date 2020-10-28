@@ -29,7 +29,7 @@ paths:
             items:
               $ref: "#/definitions/Clock-aws"
         400:
-          description: "Essa resposta significa que o servidor não entendeu a requisição pois está com uma sintaxe inválida"
+          description: "Essa resposta significa servidor não entendeu a requisição pois está com uma sintaxe inválida"
         401:
           description: "O cliente deve se autenticar para obter a resposta solicitada."
         404:
